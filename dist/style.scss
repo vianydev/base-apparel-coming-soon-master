@@ -1,0 +1,140 @@
+@import "globals";
+@import "variables";
+
+body {
+    background: url(../../images/bg-pattern-desktop.svg) no-repeat center;
+    background-size: cover;
+}
+
+main {
+    max-width: 1440px;
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    grid-area: nav;
+}
+
+#container {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 3fr 2fr;
+    grid-template-rows: 1fr 5fr;
+    grid-template-areas:  
+        ". nav img"
+        ". cta img";
+}
+
+#call-to-action {
+    // height: 450px;
+    // max-width: 500px;
+    grid-area: cta;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    h1 {
+        margin: 1rem 0;
+        color: $desaturated-red;
+        span {
+            color: black;
+        }
+    }
+    p {
+        margin: 1rem 0;
+        max-width: 450px;
+        color: $desaturated-red;
+    }
+}
+
+.button {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    input {
+        width: 28rem;
+        height: 50px;
+        padding-left: 2rem;
+        border: 1px solid $desaturated-red;
+        border-radius: 50px;
+    }
+    .arrow {
+        cursor: pointer;
+        margin: 0 -100px;
+        padding: 12px 3rem;
+        border: 1px solid $desaturated-red;
+        border-radius: 50px;
+        background: $gradient-two;
+        box-shadow: 0px 9px 20px 10px hsla(0, 0%, 85%, .5);
+        transition: transform .2s, color .2s;
+    } 
+    .arrow:active {
+        transform: translateY(2px);
+        background: $desaturated-red;   
+    }
+}
+
+#hero-image {
+    width: 610px;
+    height: 800px;
+    grid-area: img;
+    background: url(../../images/hero-desktop.jpg);
+}
+
+@media only screen and (max-width: 1225px) {
+   .button input {
+       width: 23rem;
+   }
+}
+
+@media only screen and (max-width: 800px) {
+    nav {
+        width: 100%;
+        padding: 2rem 1rem;
+        img {
+            width: 118px;
+        }
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    #hero-image {
+        order: 1;
+    }
+
+    #call-to-action {
+        order: 2;
+        margin: 7rem 2rem;
+        align-self: center;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 435px){
+    #hero-image {
+        width: 100%;
+        height: 283px;
+        align-self: flex-start;
+        background: url(../../images/hero-mobile.jpg) no-repeat;
+    }
+
+    #call-to-action {
+        margin: 3rem 20px;
+
+        h1{
+            font-size: 3rem;
+        }
+    }
+
+    .button {
+        width: 72%;
+    }
+
+
+}
+
